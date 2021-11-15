@@ -11,25 +11,37 @@ exports.config = {
         }
     },
     capabilities : [{
-        
+     
+      // capablities for chrome browser
     'bstack:options' : {
       'browserName': 'chrome',
       'browserVersion': 'latest',
       'os': 'Windows',
       'osVersion': '10'
     },
-    'bstack:options' : {
-      'browserName': 'firefox',
-      'browserVersion': 'latest',
-      'os': 'Windows',
-      'osVersion': '10'
-    },
-    'bstack:options' : {
-      'browserName': 'safari',
-      'browserVersion': 'latest',
-      'os': 'OS X',
-      'osVersion': 'Big Sur'
-    }
+
+    // capabilities for firefox browser
+    // 'bstack:options' : {
+    //   'browserName': 'firefox',
+    //   'browserVersion': 'latest',
+    //   'os': 'Windows',
+    //   'osVersion': '10'
+    // },
+
+    // capabilities for safari browser
+    // 'bstack:options' : {
+    //   'browserName': 'safari',
+    //   'browserVersion': 'latest',
+    //   'os': 'OS X',
+    //   'osVersion': 'Big Sur'
+    // },
+
+    // capabilities for mobile testing
+    // 'bstack:options' : {
+    //   'browserName': 'Android',
+    //   'deviceName': 'Samsung Galaxy Note 20 Ultra',
+    //   'osVersion': '10.0'
+    // }
 }],
     logLevel: 'warn',
     coloredLogs: true,
