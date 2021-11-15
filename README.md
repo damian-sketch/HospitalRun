@@ -17,4 +17,4 @@ Clone the folder into your local machine and execute the following commands. Ens
 2. I am still working on the ability to switch the browsers in the command line
 
 ## Note
-To switch capabilities, i.e Browsers and Device OS types, you can simply edit/add the capability in the `wdio.conf.js` file. Currently, it picks up the last capability on the list and uses only that.
+To switch capabilities, i.e Browsers and Device OS types, you can simply uncomment the capability you want in the `wdio.conf.js` file. Currently, it picks up the last capability on the list and uses only that if multiple options are provided.
