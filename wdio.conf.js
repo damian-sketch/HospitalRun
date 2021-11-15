@@ -43,7 +43,7 @@ exports.config = {
         timeout: 800000
     },
     specs: [
-        './test/specs/logout.e2e.js'
+        './test/specs/**/*.js'
     ],
 
     //
