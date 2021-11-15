@@ -11,10 +11,14 @@ Clone the folder into your local machine and execute the following commands. Ens
 
 6.To generate an allure report for the completed test cases, run the following command `allure generate allure-results && allure open`
 
+7. Using the terminal, you can switch browsers on Windows OS easily between chrome and firefox. Follow these steps:
+    * Install gsed for macOS users `brew install gnu-sed`
+    * Run the chrome/firefox script depending on which browser you want to switch to `npm run firefox` or `npm run chrome`
+    * Run the test cases as per step 2
+
 
 ## Issues
 1. Please check the Issues tab to see reported bugs in the test cases
-2. I am still working on the ability to switch the browsers in the command line
 
 ## Note
-To switch capabilities, i.e Browsers and Device OS types, you can simply uncomment the capability you want in the `wdio.conf.js` file. Currently, it picks up the last capability on the list and uses only that if multiple options are provided.
+To switch capabilities, i.e Browsers and Device OS types, you can add the capability you want in the `wdio.conf.js` file. Currently, it picks up the last capability on the list and uses only that if multiple options are provided.
