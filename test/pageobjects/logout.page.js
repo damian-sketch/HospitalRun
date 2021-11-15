@@ -11,4 +11,4 @@ class LogoutPage extends Page {
     }
 }
 
-module.exports = new LogoutPage();4
+module.exports = new LogoutPage();
