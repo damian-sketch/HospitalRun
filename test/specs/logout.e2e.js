@@ -2,7 +2,7 @@ const LoginPage = require('../pageobjects/login.page');
 const Patients = require('../pageobjects/patients')
 const Logout = require('../pageobjects/logout.page');
 
-describe('Login to the application', () => {
+describe('Login and logout of the application', () => {
     it('should login a user and log them out', async () => {
         const username = 'hr.doctor@hospitalrun.io';
         const password = 'HRt3st12'
