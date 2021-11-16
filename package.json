@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx wdio run wdio.conf.js",
     "firefox": "gsed -i \"s/'browserName': '.*'/'browserName': 'firefox'/g\" wdio.conf.js",
     "chrome": "gsed -i \"s/'browserName': '.*'/'browserName': 'chrome'/g\" wdio.conf.js",
     "report": "allure generate allure-results && allure open"
