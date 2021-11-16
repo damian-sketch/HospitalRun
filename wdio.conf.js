@@ -20,6 +20,20 @@ exports.config = {
     //   'osVersion': '10'
     // },
 
+    // capabilities for safari browser
+     // 'bstack:options' : {
+        // 'browserName': 'safari',
+        // 'browserVersion': 'latest', 
+        // 'os': 'OS X', 
+        // 'osVersion': 'Big Sur'
+         // },
+    
+     // capabilities for mobile testing 
+     // 'bstack:options' : { 
+       // 'browserName': 'Android', 
+       // 'deviceName': 'Samsung Galaxy Note 20 Ultra',
+        // 'osVersion': '10.0'
+         // }
     // to run it in your local browser
     browserName: 'chrome'
 }],
@@ -186,12 +200,12 @@ exports.config = {
         }
       },
 
-      // afterTest: function (test, scenario, { error, duration, passed }) {
-      //   if (!error) {
-      //     browser.takeScreenshot();
-      //     browser.saveScreenshot('test.png')
-      //   }
-      // }
+      // save a screenshot if the test passes
+      afterTest: function (test, scenario, { error, duration, passed }) {
+        if (!error) {
+          browser.saveScreenshot('test.png')
+        }
+      }
 
     /**
      * Hook that gets executed after the suite has ended

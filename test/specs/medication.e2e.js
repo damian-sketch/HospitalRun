@@ -15,7 +15,7 @@ describe('Request a medication', () => {
         // input data 
         const username = 'hr.doctor@hospitalrun.io';
         const password = 'HRt3st12'
-        const patient = 'Test Patient'
+        const patient = 'Test Patient - P00201'
         const medication = 'Pramoxine - m00005'
         const prescription = 'Testing prescription'
         const date = moment().subtract(1, 'days').format('L');

@@ -40,15 +40,18 @@ class MedicationPage extends Page {
      */
     async fillData (patient, medication, prescription, date, quantity, refills) {
 
+        // convert the input string to array
+        const arrPatient = [...patient];
+
+        
         await this.medication.click();
         await this.newRequest.click();
         await this.patient.click()
         await browser.pause(3000)
-        await this.patient.keys(patient);
-        await browser.pause(3000)
-        await this.patient.keys(' - P00')
-        await browser.pause(3000)
-        await this.patient.keys('201') // this is done to mimic human typing and generate the dropdown list of users
+        for (let i=0; i < arrPatient.length; i++) {
+            await this.patient.keys(arrPatient[i]);
+            await browser.pause(200);
+        } // this is done to mimic human typing and generate the dropdown list of users
         await this.patientOption.click() 
         await this.medicationInput.click()
         await this.medicationInput.keys(medication);
