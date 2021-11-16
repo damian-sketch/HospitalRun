@@ -1,5 +1,5 @@
 # HospitalRun
-These are the test cases to test the 'HospitalRun' website. Built on webdriverIO, browserstack and allure report generator
+This the a Selenium framework used to test the 'HospitalRun' website. Built on webdriverIO, browserstack and allure report generator
 
 ## How to install and run
 Clone the folder into your local machine and execute the following commands. Ensure you have a browserstack username and access key to be able to switch browsers and platforms on Browserstack 
