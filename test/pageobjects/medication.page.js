@@ -16,9 +16,9 @@ class MedicationPage extends Page {
      get newRequest () { return browser.$('=New Request')}
      get returnMedication () { return browser.$('=Return Medication')}
      get patient () { return browser.$('//input[contains(@id, "patient")]')}
-     get patientOption () { return browser.$('//span[@class="twitter-typeahead"]//pre')}
+     get patientOption () { return browser.$('div.tt-suggestion')}
      get medicationInput () { return browser.$('//input[contains(@id, "inventory")]')}
-     get medicationOption () { return browser.$('(//div[contains(@class, "tt-menu")])[2]')}
+     get medicationOption () { return browser.$('div.tt-dataset.tt-dataset-1')}
      get prescription () { return browser.$('//textarea[contains(@id, "prescription")]')}
      get prescriptionDate () { return browser.$('//input[contains(@id, "prescription")]')}
      get quantity () { return browser.$('//input[contains(@id, "quantity")]')}
@@ -43,14 +43,17 @@ class MedicationPage extends Page {
         await this.medication.click();
         await this.newRequest.click();
         await this.patient.click()
+        await browser.pause(3000)
         await this.patient.keys(patient);
         await browser.pause(3000)
-        await this.patient.setValue(' - P00201') // this is done to generate the dropdown list of users
-        // await this.patientOption.click() // leaving this out for now as the elements in the dropdown are not interactable
+        await this.patient.keys(' - P00')
+        await browser.pause(3000)
+        await this.patient.keys('201') // this is done to mimic human typing and generate the dropdown list of users
+        await this.patientOption.click() 
         await this.medicationInput.click()
         await this.medicationInput.keys(medication);
         await browser.pause(3000)
-        // await this.medicationOption.click() // leaving this out for now as the elements in the dropdown are not interactable
+        await this.medicationOption.click()
         await this.prescription.setValue(prescription);
         await this.prescriptionDate.setValue(date);
         await this.quantity.click();

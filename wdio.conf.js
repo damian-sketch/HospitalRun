@@ -13,13 +13,15 @@ exports.config = {
     capabilities : [{
      
       // capablities for windows chrome/firefox browsers
-    'bstack:options' : {
-      'browserName': 'chrome',
-      'browserVersion': 'latest',
-      'os': 'Windows',
-      'osVersion': '10'
-    },
+    // 'bstack:options' : {
+    //   'browserName': 'firefox',
+    //   'browserVersion': 'latest',
+    //   'os': 'Windows',
+    //   'osVersion': '10'
+    // },
 
+    // to run it in your local browser
+    browserName: 'chrome'
 }],
     logLevel: 'warn',
     coloredLogs: true,
@@ -30,7 +32,7 @@ exports.config = {
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',
-        timeout: 800000
+        timeout: 450000
     },
     specs: [
         './test/specs/**/*.js'
@@ -84,7 +86,11 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
    
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: [['allure',
+     {
+       outputDir: 'allure-results',
+       disableWebdriverScreenshotsReporting: false
+      }]],
 
     
     //
@@ -178,8 +184,14 @@ exports.config = {
         } else {
           browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
         }
-      }
+      },
 
+      // afterTest: function (test, scenario, { error, duration, passed }) {
+      //   if (!error) {
+      //     browser.takeScreenshot();
+      //     browser.saveScreenshot('test.png')
+      //   }
+      // }
 
     /**
      * Hook that gets executed after the suite has ended
