@@ -14,11 +14,10 @@ Clone the folder into your local machine and execute the following commands. Ens
 
 6.To generate an allure report for the completed test cases, run the following command `npm run report`
 
-7. Using the terminal, you can switch browsers on Windows OS in BrowserStack easily between chrome and firefox. Follow these steps for MacOs users:
+7. Using the terminal, you can switch browsers on Windows OS in BrowserStack easily between chrome,firefox and edge. Follow these steps for MacOs users:
     * Install gsed for `brew install gnu-sed`
-    * Run the chrome/firefox script depending on which browser you want to switch to `npm run firefox` or `npm run chrome`
+    * Run the chrome/firefox/edge script depending on which browser you want to switch to `npm run firefox` or `npm run chrome` or `npm run edge`
     * Run the test cases as per step 2
-    *
     
  8. For windows or linux, you can use any text finder and replacer and modify the `chrome` and `firefox` scripts in `package.json` accordingly.
 
