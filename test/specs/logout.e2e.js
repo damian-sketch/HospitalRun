@@ -13,6 +13,8 @@ describe('Login and logout of the application', () => {
         await expect(Patients.patientListingPage).toBeExisting();
         await expect(Patients.patientListingPage).toHaveTextContaining(
             'Patient Listing');
+
+        // logout    
         await Logout.signout();
         await expect(LoginPage.loginForm).toBeExisting()
         

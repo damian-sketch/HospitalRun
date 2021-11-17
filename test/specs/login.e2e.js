@@ -6,9 +6,13 @@ describe('Login to the application', () => {
         const username = 'hr.doctor@hospitalrun.io';
         const password = 'HRt3st12'
 
+        // open the login page
         await LoginPage.open();
 
+        // perform the login actions
         await LoginPage.login(username, password);
+
+        // assert that Patient Listing page and header are visible
         await expect(Patients.patientListingPage).toBeExisting();
         await expect(Patients.patientListingPage).toHaveTextContaining(
             'Patient Listing');
