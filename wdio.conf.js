@@ -13,29 +13,37 @@ exports.config = {
     capabilities : [{
      
       // capablities for windows chrome/firefox browsers
-    // 'bstack:options' : {
-    //   'browserName': 'firefox',
-    //   'browserVersion': 'latest',
-    //   'os': 'Windows',
-    //   'osVersion': '10'
-    // },
+    'bstack:options' : {
+      'browserName': 'edge',
+      'browserVersion': 'latest',
+      'os': 'Windows',
+      'osVersion': '10'
+    },
 
     // capabilities for safari browser
      // 'bstack:options' : {
-        // 'browserName': 'safari',
+        // 'browserName': 'internet explorer',
         // 'browserVersion': 'latest', 
         // 'os': 'OS X', 
         // 'osVersion': 'Big Sur'
          // },
     
      // capabilities for mobile testing 
-     // 'bstack:options' : { 
-       // 'browserName': 'Android', 
-       // 'deviceName': 'Samsung Galaxy Note 20 Ultra',
-        // 'osVersion': '10.0'
-         // }
+    //  'bstack:options' : { 
+    //    'browserName': 'internet explorer', 
+    //    'deviceName': 'Samsung Galaxy Note 20 Ultra',
+    //     'osVersion': '10.0',
+    //     'chrome': {
+    //       prefs: {
+    //           'profile.default_content_setting_values.popups' : 1,
+    //           'profile.default_content_setting_values.notifications': 2,
+    //           'profile.default_content_setting_values.automatic_downloads': 1
+    //       }
+    //   }
+    //      }
     // to run it in your local browser
-    browserName: 'chrome'
+    // browserName: 'chrome',
+
 }],
     logLevel: 'warn',
     coloredLogs: true,
@@ -92,6 +100,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver','browserstack'],
+  
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

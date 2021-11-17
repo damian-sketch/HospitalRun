@@ -7,6 +7,7 @@
     "test": "npx wdio run wdio.conf.js",
     "firefox": "gsed -i \"s/'browserName': '.*'/'browserName': 'firefox'/g\" wdio.conf.js",
     "chrome": "gsed -i \"s/'browserName': '.*'/'browserName': 'chrome'/g\" wdio.conf.js",
+    "edge": "gsed -i \"s/'browserName': '.*'/'browserName': 'edge'/g\" wdio.conf.js",
     "report": "allure generate allure-results && allure open"
     
   },
