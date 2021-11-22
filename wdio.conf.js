@@ -14,7 +14,7 @@ exports.config = {
      
       // capablities for windows chrome/firefox browsers
     'bstack:options' : {
-      'browserName': 'edge',
+      'browserName': 'firefox',
       'browserVersion': 'latest',
       'os': 'Windows',
       'osVersion': '10'
@@ -22,7 +22,7 @@ exports.config = {
 
     // capabilities for safari browser
      // 'bstack:options' : {
-        // 'browserName': 'internet explorer',
+        // 'browserName': 'firefox',
         // 'browserVersion': 'latest', 
         // 'os': 'OS X', 
         // 'osVersion': 'Big Sur'
@@ -30,7 +30,7 @@ exports.config = {
     
      // capabilities for mobile testing 
     //  'bstack:options' : { 
-    //    'browserName': 'internet explorer', 
+    //    'browserName': 'firefox', 
     //    'deviceName': 'Samsung Galaxy Note 20 Ultra',
     //     'osVersion': '10.0',
     //     'chrome': {
@@ -114,6 +114,7 @@ exports.config = {
        outputDir: 'allure-results',
        disableWebdriverScreenshotsReporting: false
       }]],
+
 
     
     //
@@ -201,6 +202,15 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
+
+     // save a screenshot if the test passes
+     afterStep: function (test, scenario, { error, duration, passed }) {
+      if (!error) {
+        browser.saveScreenshot('test.png')
+      }
+    },
+
+    
     afterTest: function (test, context, { error, result, duration, passed, retries }) {
         if(passed) {
           browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
@@ -208,13 +218,6 @@ exports.config = {
           browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
         }
       },
-
-      // save a screenshot if the test passes
-      afterTest: function (test, scenario, { error, duration, passed }) {
-        if (!error) {
-          browser.saveScreenshot('test.png')
-        }
-      }
 
     /**
      * Hook that gets executed after the suite has ended

@@ -9,7 +9,6 @@
     "chrome": "gsed -i \"s/'browserName': '.*'/'browserName': 'chrome'/g\" wdio.conf.js",
     "edge": "gsed -i \"s/'browserName': '.*'/'browserName': 'edge'/g\" wdio.conf.js",
     "report": "allure generate allure-results && allure open"
-    
   },
   "keywords": [],
   "author": "",
@@ -25,6 +24,7 @@
     "wdio-chromedriver-service": "^7.2.2"
   },
   "dependencies": {
+    "allure-commandline": "^2.13.8",
     "moment": "^2.29.1"
   }
 }
