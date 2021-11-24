@@ -12,7 +12,7 @@ Clone the folder into your local machine and execute the following commands. Ens
 5. Once the tests are done, you should be able to see this on browserstack with an attached recording of the execution.
 ![Screenshot 2021-11-15 at 13 04 37](https://user-images.githubusercontent.com/63429298/141762504-f7005bdc-afa8-4713-b72c-52ba3b663d1b.png)
 
-6.To generate an allure report for the completed test cases, run the following command `npm run report`
+6.To generate an allure report for the completed test cases, run the following command `npm run report`. This will open a webpage showing you a report with all the steps, the status and a screenshot at the end of the test.
 
 7. Using the terminal, you can switch browsers on Windows OS in BrowserStack easily between chrome,firefox and edge. Follow these steps for MacOs users:
     * Install gsed for `brew install gnu-sed`
