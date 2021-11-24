@@ -15,12 +15,12 @@ exports.config = {
     capabilities : [{
      
       // capablities for windows chrome/firefox browsers
-    // 'bstack:options' : {
-    //   'browserName': 'chrome',
-    //   'browserVersion': 'latest',
-    //   'os': 'Windows',
-    //   'osVersion': '10'
-    // },
+    'bstack:options' : {
+      'browserName': 'chrome',
+      'browserVersion': 'latest',
+      'os': 'Windows',
+      'osVersion': '10'
+    },
 
     // capabilities for safari browser
      // 'bstack:options' : {
@@ -44,7 +44,7 @@ exports.config = {
     //   }
     //      }
     // to run it in your local browser
-    browserName: 'chrome',
+    // browserName: 'chrome',
 
 }],
     logLevel: 'warn',
