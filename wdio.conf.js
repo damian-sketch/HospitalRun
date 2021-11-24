@@ -1,3 +1,5 @@
+const allureReporter = require('@wdio/allure-reporter');
+
 exports.config = {
     user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
     key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
@@ -13,16 +15,16 @@ exports.config = {
     capabilities : [{
      
       // capablities for windows chrome/firefox browsers
-    'bstack:options' : {
-      'browserName': 'firefox',
-      'browserVersion': 'latest',
-      'os': 'Windows',
-      'osVersion': '10'
-    },
+    // 'bstack:options' : {
+    //   'browserName': 'chrome',
+    //   'browserVersion': 'latest',
+    //   'os': 'Windows',
+    //   'osVersion': '10'
+    // },
 
     // capabilities for safari browser
      // 'bstack:options' : {
-        // 'browserName': 'firefox',
+        // 'browserName': 'chrome',
         // 'browserVersion': 'latest', 
         // 'os': 'OS X', 
         // 'osVersion': 'Big Sur'
@@ -30,7 +32,7 @@ exports.config = {
     
      // capabilities for mobile testing 
     //  'bstack:options' : { 
-    //    'browserName': 'firefox', 
+    //    'browserName': 'chrome', 
     //    'deviceName': 'Samsung Galaxy Note 20 Ultra',
     //     'osVersion': '10.0',
     //     'chrome': {
@@ -42,7 +44,7 @@ exports.config = {
     //   }
     //      }
     // to run it in your local browser
-    // browserName: 'chrome',
+    browserName: 'chrome',
 
 }],
     logLevel: 'warn',
@@ -203,16 +205,11 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
 
-     // save a screenshot if the test passes
-     afterStep: function (test, scenario, { error, duration, passed }) {
-      if (!error) {
-        browser.saveScreenshot('test.png')
-      }
-    },
-
+   
     
-    afterTest: function (test, context, { error, result, duration, passed, retries }) {
+    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if(passed) {
+          await browser.takeScreenshot();
           browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
         } else {
           browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
